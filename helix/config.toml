@@ -1,0 +1,43 @@
+theme= "carbonfox"
+
+[editor]
+line-number = "relative"
+idle-timeout = 0
+mouse = false
+true-color = true
+
+[editor.statusline]
+separator = ""
+left = ["mode", "spinner", "file-modification-indicator", "read-only-indicator", "version-control"]
+center = ["file-name"]
+right = ["diagnostics", "separator", "register", "selections", "separator", "position", "separator", "file-encoding", "file-line-ending", "separator", "file-type"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.normal]
+"tab" = "indent"
+"S-tab" = "unindent"
+"<" = "no_op"
+">" = "no_op"
+H = ":buffer-previous"
+L = ":buffer-next"
+"C-q" = ":buffer-close"
+"ret" = ["open_below", "normal_mode"]
+
+[keys.select]
+"tab" = "indent"
+"S-tab" = "unindent"
+"<" = "no_op"
+">" = "no_op"
+"C-j" = ["extend_to_line_bounds", "delete_selection", "paste_after", "select_mode"]
+"C-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "select_mode"]
+
+[keys.insert]
+"C-l" = "move_next_long_word_end"
+"C-h" = "move_prev_word_start"
