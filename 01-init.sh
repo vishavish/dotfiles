@@ -1,14 +1,14 @@
 #!/usr/bin/bash
 
-apt install -y software-properties-common
-apt update
+sudo apt install -y software-properties-common
+sudo apt update
 
-apt-add-repository -y contrib non-free
+sudo apt-add-repository -y contrib non-free
 
-apt-get update && apt-get upgrade -y
+sudo apt-get update && apt-get upgrade -y
 
 # Installing Sudo
-apt install sudo -y
+#apt install sudo -y
 
 # Installing nala
 sudo apt install nala -y

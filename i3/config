@@ -9,11 +9,10 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-# set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Noto Sans 8
+font pango:MesloLGD Nerd Font Mono 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -154,10 +153,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ccedilla resize grow width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -178,13 +177,6 @@ bindsym $mod+r mode "resize"
 bar {
 	position top
 	status_command i3status --config ~/.config/i3/i3status.conf
-	font pango:MesloLGS Nerd Mono Font 8
-  	# strip_workspace_numbers yes
-  	separator_symbol "-"
-  	# workspace_buttons yes
-  	# bindsym button4 nop
-  	# bindsym button5 nop
-  	# tray_padding 0
   	colors {
    		statusline    #ffffff
     	background    #000000
@@ -198,42 +190,29 @@ bar {
   }
 }
 
-# Make the currently focused window a scratchpad
-# bindsym $mod+Shift+minus move scratchpad
-
-# Show the first scratchpad window
-# bindsym $mod+minus scratchpad show
+exec_always xrandr --output eDP-1 --off --output VGA-1 --off --output DP-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
 
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +10%"
-bindsym XF86AudioLowerVolume exec “pactl set-sink-volume @DEFAULT_SINK@ ‘10%”
-bindsym XF86AudioMute exec “pactl set-sink-mute @DEFAULT_SINK@ toggle”
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -10%"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
 exec --no-startup-id volumeicon
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id xsettingsd &
 exec --no-startup-id unclutter &
-exec --no-startup-id compton -b
-exec_always --no-startup-id concky &
+# exec --no-startup-id compton -b
+# exec_always --no-startup-id conky &
 exec_always --no-startup-id numlockx on 
 
 exec xfce4-power-manager
-
-# Increase brightness
-# bindsym XF86MonBrightnessUp exec “xbacklight -inc 10”
-
-# Decrease brightness
-# bindsym XF86MonBrighnessDown exec “xbacklight -dec 10”
-
-# bindsym $Mod+i exec firefox www.google.com
-# bindsym $alt+e exec thunar
 
 # Network Applet
 # exec --no-startup-id nm-applet
 
 ########## Workspace music ################
  
-# bindsym $mod+m workspace "♪"
-# bindsym $mod+Shift+m move container to workspace "♪"
+bindsym $mod+m workspace "♪"
+bindsym $mod+Shift+m move container to workspace "♪"
 
 # Music control
 # Special music mode
@@ -251,7 +230,6 @@ exec xfce4-power-manager
 # # Emergency start cmus
 # bindsym $mod+Shift+Tab exec screen -S cmus -d -m cmus && pkill --signal SIGRTMIN+13 i3blocks
 # bindsym $mod+Tab mode "$music"
-
 
 # assign [class="Navigator"] $ws1
 # for_window [class="Navigator"] border 1pixel
