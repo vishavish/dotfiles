@@ -5,6 +5,7 @@ line-number = "relative"
 idle-timeout = 0
 mouse = false
 true-color = true
+color-modes = true
 
 [editor.statusline]
 separator = ""
@@ -14,6 +15,10 @@ right = ["diagnostics", "separator", "register", "selections", "separator", "pos
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
 
 [editor.cursor-shape]
 insert = "bar"

@@ -1,24 +1,18 @@
 #!/usr/bin/bash
+ 
+set -e 
 
-printf "\e[1;32m
-#######################
-,  , ,__ ,   ,    __
-|__| |__ |   |   /  \
-|  | |__ |__ |__ \__/
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
 
-#######################
-\e[0m\n"
+if ! command_exists sudo; then
+  echo "You need sudo to run me!"
+  exit 1
+fi
 
-bash ~/dotfiles/01-init.sh
-bash ~/dotfiles/02-dev.sh
+bash ./01-init.sh
+bash ./02-dev.sh
+bash ./03-rice.sh
 
 sudo nala autoremove
-
-printf "\e[1;32m
-#############################
-          __  ,_, ,   ,__
-\  /\  / /  \ |_/ |   |  \
- \/  \/  \__/ | \ |__ |__/
-
-#############################
-\e[0m\n"

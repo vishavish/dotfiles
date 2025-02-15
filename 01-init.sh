@@ -1,90 +1,29 @@
 #!/usr/bin/bash
 
-sudo apt install -y software-properties-common
-sudo apt update
+set -e
 
-sudo apt-add-repository -y contrib non-free
-
+sudo apt install software-properties-common -y
+sudo apt-add-repository contrib non-free -y
 sudo apt-get update && apt-get upgrade -y
-
-# Installing Sudo
-#apt install sudo -y
 
 # Installing nala
 sudo apt install nala -y
 sudo nala update
 
 # Essentials
-sudo nala install -y build-essential wget curl 
+sudo nala install build-essential wget curl  -y
 
 # X Window System and Input
-sudo nala install -y amd64-microcode i3 xorg suckless-tools lightdm
+sudo nala install amd64-microcode i3 xorg suckless-tools lightdm -y
 
 # Browser
-sudo nala install -y firefox-esr
-
-# CPU Microcode Updates (if you have amd cpu uncomment the first one and comment the second one)
-sudo nala install -y amd64-microcode
-# sudo nala install -y intel-microcode
-
-# Network Management
-sudo nala install -y wicd ufw
-
-# Appearance and Customization
-sudo nala install -y nitrogen numlockx unclutter
+sudo nala install firefox-esr chromium -y
 
 # System Utilities
-sudo nala install -y xbindkeys arandr xbacklight
-
-# Menu and Window Managers
-sudo nala install -y rofi
-
-# Archive Management
-sudo nala install -y unzip
-
-# File Managers
-sudo nala install -y thunar
-
-# XFCE Settings
-sudo nala install -y xfce4-power-manager
+sudo nala install thunar xbindkeys arandr xbacklight btop rofi unzip ksnip xfce4-power-manager feh numlockx unclutter fastfetch network-manager-gnome -y
 
 # Audio Control
-sudo nala install -y pulseaudio pavucontrol alsa-utils
-sudo nala install -y pasystray paprefs pavumeter pulseaudio-module-zeroconf 
+sudo nala install pulseaudio pavucontrol alsa-utils pulseaudio-module-zeroconf -y
 
-# System Information and Monitoring
-sudo nala install -y htop conky
-
-# Additional Utilities
-# sudo nala install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends
-# sudo systemctl enable avahi-daemon
-# sudo systemctl enable acpid
-
-# Screenshots
-# sudo nala install -y flameshot
-
-# Printer Support
-# sudo nala install -y cups
-# sudo systemctl enable cups
-
-# Modern replacement for ls
-# sudo nala install -y exa
-
-# Bluetooth Support
-# sudo nala install -y bluez blueman
-# sudo systemctl enable bluetooth
-
-# Image Viewer
-# sudo nala install -y viewnior
-
-# Media Player
-# sudo nala install -y mpv
-
-# Calculator
-# sudo nala install -y galculator
-
-# Document Viewer
-# sudo nala install -y zathura
-
-# Disk Utilities and Cleaning Tools
-# sudo nala install -y gnome-disk-utility bleachbit
+# Media
+sudo nala install mpv mupdf -y

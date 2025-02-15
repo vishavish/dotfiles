@@ -6,7 +6,8 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 
 config.color_scheme = "carbonfox"
 config.font = wezterm.font_with_fallback({
-  { family = "MesloLGS Nerd Font Mono",  scale = 1.0 },
+
+  { family = "JetBrains Mono",  scale = 0.9 },
 })
 
 config.window_background_opacity = 1.0
@@ -24,29 +25,29 @@ config.inactive_pane_hsb = {
 -- Keys
 config.leader = { key = "w", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
-  { key = "w", mods = "LEADER",       action = act.SendKey { key = "w", mods = "CTRL" } },
-  { key = "c", mods = "LEADER",       action = act.ActivateCopyMode },
+  { key = "w", mods = "LEADER", action = act.SendKey { key = "w", mods = "CTRL" } },
+  { key = "c", mods = "LEADER", action = act.ActivateCopyMode },
 
   -- Pane keybindings
-  { key = "-", mods = "LEADER",       action = act.SplitVertical { domain = "CurrentPaneDomain" } },
-  { key = "=", mods = "LEADER",       action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
-  { key = "h", mods = "LEADER",       action = act.ActivatePaneDirection("Left") },
-  { key = "j", mods = "LEADER",       action = act.ActivatePaneDirection("Down") },
-  { key = "k", mods = "LEADER",       action = act.ActivatePaneDirection("Up") },
-  { key = "l", mods = "LEADER",       action = act.ActivatePaneDirection("Right") },
-  { key = "q", mods = "LEADER",       action = act.CloseCurrentPane { confirm = true } },
-  { key = "z", mods = "LEADER",       action = act.TogglePaneZoomState },
-  { key = "s", mods = "LEADER",       action = act.RotatePanes "Clockwise" },
+  { key = "-", mods = "LEADER", action = act.SplitVertical { domain = "CurrentPaneDomain" } },
+  { key = "=", mods = "LEADER", action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
+  { key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
+  { key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
+  { key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
+  { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
+  { key = "q", mods = "LEADER", action = act.CloseCurrentPane { confirm = true } },
+  { key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
+  { key = "s", mods = "LEADER", action = act.RotatePanes "Clockwise" },
 
   -- Resize
-  { key = "r", mods = "LEADER",       action = act.ActivateKeyTable { name = "resize_pane", one_shot = false } },
+  { key = "r", mods = "LEADER", action = act.ActivateKeyTable { name = "resize_pane", one_shot = false } },
 
   -- Tab keybindings
-  { key = "n", mods = "LEADER",       action = act.SpawnTab("CurrentPaneDomain") },
-  { key = "[", mods = "LEADER",       action = act.ActivateTabRelative(-1) },
-  { key = "]", mods = "LEADER",       action = act.ActivateTabRelative(1) },
-  { key = "t", mods = "LEADER",       action = act.ShowTabNavigator },
-  { key = "m", mods = "LEADER",       action = act.ActivateKeyTable { name = "move_tab", one_shot = false } },
+  { key = "n", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
+  { key = "[", mods = "LEADER", action = act.ActivateTabRelative(-1) },
+  { key = "]", mods = "LEADER", action = act.ActivateTabRelative(1) },
+  { key = "t", mods = "LEADER", action = act.ShowTabNavigator },
+  { key = "m", mods = "LEADER", action = act.ActivateKeyTable { name = "move_tab", one_shot = false } },
 
   -- workspace
   { key = "x", mods = "LEADER",       action = act.ShowLauncherArgs { flags = "FUZZY|WORKSPACES" } },
